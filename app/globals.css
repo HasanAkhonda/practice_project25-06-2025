@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Arial Rounded MT Bold';
+  src: url('/fonts/Arial_Rounded_MT_Bold.woff2') format('woff2'),
+    url('/fonts/Arial_Rounded_MT_Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
