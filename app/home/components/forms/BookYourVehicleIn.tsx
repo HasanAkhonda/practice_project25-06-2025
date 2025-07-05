@@ -4,7 +4,7 @@ import { GoBell } from "react-icons/go";
 const BookYourVehicleIn = () => {
   return (
     <div className="rounded w-full px-4 sm:px-6 md:px-8">
-      <div className="flex w-full flex-col min-w-md mx-auto">
+      <div className="flex w-full flex-col min-w-[288px] md:min-w-md mx-auto">
         {/* Header Section */}
         <div className="flex self-stretch p-6 sm:p-8 bg-green-600 rounded-t-2xl backdrop-blur-[5px] flex-col justify-start items-start gap-4 sm:gap-6">
           <div className="text-white text-xl sm:text-2xl font-semibold leading-7">

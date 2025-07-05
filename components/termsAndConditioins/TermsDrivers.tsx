@@ -4,12 +4,12 @@ const TermsDrivers = () => {
     return (
         <div>
             <div className='bg-[#00ce04] w-full '>
-                <div className='lg:px-[188px]  px-6 md:px-12 py-[100px] flex flex-col gap-8 md:gap-12  mx-auto w-full justify-between items-center text-sm font-medium'>
+                <div className='lg:px-6 md:px-12 lg:px-[188px] py-[60px] lg:py-[100px]  px-6 md:px-12 py-[100px] flex flex-col gap-8 md:gap-12  mx-auto w-full justify-between items-center text-sm font-medium'>
                     <span className="text-white text-6xl font-normal  font-Inder leading-[67.20px]">Terms and Conditions for Drivers</span>
                 </div>
             </div>
             {/* body drivers  */}
-            <div className=' px-6 md:px-12 lg:px-[188px] py-[100px] flex flex-col gap-8 md:gap-12  max-w-[1600px]  mx-auto w-full justify-between items-start text-sm font-medium'>
+            <div className=' px-6 md:px-12 lg:px-6 md:px-12 lg:px-[188px] py-[60px] lg:py-[100px] py-[60px] lg:py-[100px] flex flex-col gap-8 md:gap-12  max-w-[1600px]  mx-auto w-full justify-between items-start text-sm font-medium'>
                 <div className='flex flex-col gap-3'>
                     <span className="text-gray-950 text-2xl font-medium  font-Poppins leading-9">Last Updated: May 2025</span>
                     <span className="text-black text-lg font-normal  font-Poppins leading-loose">Welcome to simplymot.co.uk. By accessing or using our website, you agree to the following Terms and Conditions. If you have any concerns or do not agree with these terms, we kindly ask that you refrain from using our services.</span>

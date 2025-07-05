@@ -24,7 +24,7 @@ const faqItems = [
                 <div className='flex flex-col gap-3 '>
                     <h1 className='font-bold'>step2</h1>
                     <p>
-                        Once you've chosen your garage and date, just confirm to book your appointment. You're all set!                        </p>
+                        Once you've chosen your garage and date, just confirm to book your appointment. You're all set!  </p>
                 </div>
             </div>
         )],
@@ -47,7 +47,7 @@ const faqItems = [
 const FAQ = () => {
 
     return (
-        <div className='max-w-[1600px] mx-auto flex flex-col md:flex-row gap-12 px-[188px] py-[100px]'>
+        <div className='container   flex flex-col md:flex-row gap-12 px-6 md:px-12 lg:px-[188px] py-[60px] lg:py-[100px]  '>
             <div className='flex flex-col gap-12'>
                 <h1 className='text-black  text-6xl font-normal font-Inder leading-[67.20px]'>
                     Frequently Asked Questions
@@ -55,8 +55,8 @@ const FAQ = () => {
                 <Image src={faq} alt={''} />
             </div>
             <div className='flex w-full flex-col gap-3'>
-                {faqItems.map((items ,index   ) => (
-                    <FAQItems    question={items[0]} answer={items[1]} />
+                {faqItems.map((items, index) => (
+                    <FAQItems question={items[0]} answer={items[1]} />
                 )
 
                 )}

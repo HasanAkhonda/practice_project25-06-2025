@@ -8,8 +8,8 @@ const page = () => {
     return (
         <div >
             {/* <TermsDrivers/>
-            <TermsGarages/> */}
-            {/* <CookiePolicy/> */}
+            <TermsGarages/>
+            <CookiePolicy/> */}
             <PrivacyPolicy/>
         </div>
     )

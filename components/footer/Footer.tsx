@@ -5,7 +5,7 @@ import { TbBrandInstagramFilled } from 'react-icons/tb';
 const Footer = () => {
     return (
         <div className="bg-green-500 ">
-            <div className='max-w-[1600px] w-full  gap-8 mx-auto  flex flex-col md:flex-row justify-between items-center py-[40px] px-6 md:px-12 lg:px-[188px] text-white text-sm font-medium'>
+            <div className='container w-full  gap-8    flex flex-col md:flex-row justify-between items-center py-[40px] px-5 md:px-[188px] text-white text-sm font-medium'>
                 <div className="flex  flex-wrap flex-col md:flex-row  justify-start gap-6 mb-2 md:mb-0">
                     <a href="#" className="text-white text-lg font-semibold font-Inter  leading-7   text-center md:text-start hover:underline ">Contact Us</a>
                     <a href="#" className="text-white text-lg font-semibold font-Inter  leading-7   text-center md:text-start hover:underline ">Terms & Conditions for Drivers</a>

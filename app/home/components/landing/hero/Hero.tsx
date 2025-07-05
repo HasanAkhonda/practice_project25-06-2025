@@ -11,13 +11,17 @@ import { FaStar } from 'react-icons/fa';
 
 const Hero = () => {
     return (
-        <div className='bg-gradient-to-bl from-[#00cf00] via-[#00d00a] to-[#00b712]'>
+        // gradient-to-bl from-[#00cf00] via-[#00d00a] to-[#00b712]
+        <div
+            // className='bg-[&src(`./public/images/Ract.png`)]'
+            className='bg-cover bg-[url("/images/Ract.png")]'
+        >
             <section
                 id="Hero"
-                className="flex flex-col lg:flex-row items-center min-w-md justify-between gap-6  max-w-[1600px] px-5 sm:px-10 md:px-[188px] py-4 sm:py-8   md:py-[169px] mx-auto  "
+                className="flex flex-col lg:flex-row    gap-8 items-center   justify-between    max-w-[1600px] px-5 sm:px-10   md:px-12 lg:px-[188px] py-[60px] lg:py-[100px]   sm:py-8   md:py-[169px] mx-auto  "
             >
                 {/* Left Text Section */}
-                <div className='flex-1'>
+                <div className='flex-1 flex flex-col gap-8 '>
                     <div className=" text-center md:text-left gap-8">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-normal font-['Inder'] leading-tight">
                             MOT Bookings Made Simple.
@@ -43,8 +47,8 @@ const Hero = () => {
                             </div>
                         </div>
                         <div className='flex flex-col gap-[8.96px]'>
-                            <div className='flex'><Image src={star} alt={''}/> </div>
-                            <div className='flex'><Image src={starhlf} alt={''}/> </div>
+                            <div className='flex'><Image src={star} alt={''} /> </div>
+                            <div className='flex'><Image src={starhlf} alt={''} /> </div>
 
                         </div>
                     </div>

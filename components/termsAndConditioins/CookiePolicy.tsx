@@ -4,12 +4,12 @@ const CookiePolicy = () => {
     return (
         <div>
             <div className='bg-[#00ce04] w-full '>
-                <div className='lg:px-[188px]  px-6 md:px-12 py-[100px] flex flex-col gap-8 md:gap-12  mx-auto w-full justify-between items-center text-sm font-medium'>
+                <div className='  md:px-12 lg:px-[188px] py-[60px] lg:py-[100px]  px-6   flex flex-col gap-8 md:gap-12  mx-auto w-full justify-between items-center text-sm font-medium'>
                     <span className="text-white text-6xl font-normal  font-Inder leading-[67.20px]">Cookie policy</span>
                 </div>
             </div>
             {/* body drivers  */}
-            <div className=' px-6 md:px-12 lg:px-[188px] py-[100px] flex flex-col gap-8 md:gap-12  max-w-[1600px]  mx-auto w-full justify-between items-start text-sm font-medium'>
+            <div className=' px-6 md:px-12     lg:px-[188px] py-[60px] lg:py-[100px]   flex flex-col gap-8 md:gap-12  max-w-[1600px]  mx-auto w-full justify-between items-start text-sm font-medium'>
                 <div className='flex flex-col gap-3'>
                     <span className="text-gray-950 text-2xl font-medium  font-Poppins leading-9">Last Updated: May 2025</span>
                     <span className="text-black text-lg font-normal  font-Poppins leading-loose">This Cookie Policy explains how simplymot.co.uk (“we”, “us”, or “our”) uses cookies and similar technologies on our website. By using our website, you consent to our use of cookies in accordance with this policy.</span>
