@@ -1,5 +1,5 @@
 import React from 'react';
-import BookYourVehicleIn from '../forms/BookYourVehicleIn';
+import BookYourVehicleIn from '../../forms/BookYourVehicleIn';
 import Image from 'next/image';
 import c1 from '@/public/clients/Ellipse 1.png';
 import c2 from '@/public/clients/Ellipse 2.png';

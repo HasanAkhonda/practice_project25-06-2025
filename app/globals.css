@@ -1,9 +1,20 @@
 @import 'tailwindcss';
 
 @font-face {
+  @import url('https://fonts.googleapis.com/css2?family=Inder&family=Poppins:wght@400;500&display=swap');
   font-family: 'Arial Rounded MT Bold';
   src: url('/fonts/Arial_Rounded_MT_Bold.woff2') format('woff2'),
     url('/fonts/Arial_Rounded_MT_Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+/* styles/globals.css */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Inder', sans-serif;
 }
