@@ -1,8 +1,6 @@
+import { AppConfig } from "@/config/app.config";
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppConfig } from "@/config/app.config";
-import Footer from "@/components/footer/Footer";
-import Topbar from "@/components/Home/topbar/Topbar";
 
 export const metadata: Metadata = {
   title: AppConfig().app.name,

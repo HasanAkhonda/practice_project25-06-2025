@@ -5,7 +5,6 @@ const page = () => {
   return (
     <div className='flex flex-col items-center h-screen justify-center'>
       hello world
-      <CreateAccountForm/>
     </div>
   )
 }
