@@ -1,7 +1,13 @@
-export default function Home() {
+import CreateAccountForm from '@/components/forms/CreateAccountForm'
+import React from 'react'
+
+const page = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1>Hello World</h1>
+    <div className='flex flex-col items-center h-screen justify-center'>
+      hello world
+      <CreateAccountForm/>
     </div>
-  );
+  )
 }
+
+export default page
