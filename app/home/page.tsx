@@ -1,14 +1,19 @@
-import FAQ from './components/landing/faq/FAQ'
-import Hero from './components/landing/hero/Hero'
-import HowToBookYourMOT from './components/landing/howtobookyourmot/HowToBookYourMOT'
-import ReadyToBookYourMot from './components/landing/readytobookyourmot/ReadyToBookYourMot'
+import FAQ from "@/components/Home/landing/faq/FAQ"
+import Hero from "@/components/Home/landing/hero/Hero"
+import HowToBookYourMOT from "@/components/Home/landing/howtobookyourmot/HowToBookYourMOT"
+import ReadyToBookYourMot from "@/components/Home/landing/readytobookyourmot/ReadyToBookYourMot"
+import WhatOurCustomerSay from "@/components/Home/whatCustomerSay/WhatOurCustomerSay"
+
+
 
 const homepage = () => {
+  
   return (
     <div>
-       <Hero />
+      <Hero />
       <HowToBookYourMOT />
       <ReadyToBookYourMot />
+      <WhatOurCustomerSay  />
       <FAQ />
     </div>
   )

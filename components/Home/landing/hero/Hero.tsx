@@ -18,7 +18,7 @@ const Hero = () => {
         >
             <section
                 id="Hero"
-                className="flex flex-col lg:flex-row    gap-8 items-center   justify-between    max-w-[1600px] px-5 sm:px-10   md:px-12 lg:px-[188px] py-[60px] lg:py-[100px]   sm:py-8   md:py-[169px] mx-auto  "
+                className="flex flex-col lg:flex-row    gap-8 items-center   justify-between   container px-5 sm:px-10   md:px-12 lg:px-[188px] py-[60px] lg:py-[100px]   sm:py-8   md:py-[169px] mx-auto  "
             >
                 {/* Left Text Section */}
                 <div className='flex-1 flex flex-col gap-8 '>
