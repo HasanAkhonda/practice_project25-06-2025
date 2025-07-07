@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import stearing from '@/public/vectors/stearing.svg'
 import garage from '@/public/vectors/garage.svg'
+import Link from 'next/link'
 
 const page = () => {
     return (
@@ -14,10 +15,13 @@ const page = () => {
                 </span>
             </div>
             <div className='flex flex-col md:flex-row justify-center items-center gap-8'>
-                <div className="w-60 h-60 p-8 bg-white rounded-2xl shadow-[0px_0px_10px_0px_rgba(0,0,0,0.10)] outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px] inline-flex flex-col justify-center items-center gap-4">
-                    <Image src={stearing} alt={''} width={80} height={80} className='max-w-20 h-20 aspect-square' />
-                    <span className="   text-2xl font-medium font-Inter leading-7">Driver Sign Up</span>
-                </div>
+                <Link href={'createAcc'}>
+                    <div className="w-60 h-60 p-8 bg-white rounded-2xl shadow-[0px_0px_10px_0px_rgba(0,0,0,0.10)] outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px] inline-flex flex-col justify-center items-center gap-4">
+                        <Image src={stearing} alt={''} width={80} height={80} className='max-w-20 h-20 aspect-square' />
+                        <span className="   text-2xl font-medium font-Inter leading-7">Driver Sign Up</span>
+                    </div>
+                </Link>
+
                 <div className="w-60 h-60 p-8 bg-white rounded-2xl shadow-[0px_0px_10px_0px_rgba(0,0,0,0.10)] outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px] inline-flex flex-col justify-center items-center gap-4">
                     <Image src={garage} alt={''} width={80} height={80} className='max-w-20 h-20 aspect-square' />
                     <span className="    text-2xl font-medium font-Inter leading-7">Garage Sign Up</span>
