@@ -48,7 +48,7 @@ const ResetPassword = () => {
                             {isShow ? <EyeOff /> : <Eye />}
                         </button>
                     </div>
-                    {errors.password && <span className="text-red-500">{String(errors.password.message)}</span>} {/* Show error message */}
+                    {errors.password && <span className="text-red-500">{errors.password.message}</span>} {/* Show error message */}
                 </div>
                 <div className='w-full flex flex-col gap-1.5 md:gap-3'>
                     {/* Password */}
@@ -66,7 +66,7 @@ const ResetPassword = () => {
                             {isShow2 ? <EyeOff /> : <Eye />}
                         </button>
                     </div>
-                    {errors.password && <span className="text-red-500">{String(errors.password.message)}</span>} {/* Show error message */}
+                    {errors.password && <span className="text-red-500">{errors.password.message}</span>} {/* Show error message */}
                 </div>
 
                 {/* Submit Button */}

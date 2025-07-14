@@ -29,7 +29,7 @@ export default function ({
                         </div>
                     </div>
                 </div>
-                <div className="w-full px-8 py-5 h-full overflow-y-auto bg-[#eceff3]">
+                <div className="w-full px-8 py-6 h-full overflow-y-auto bg-[#eceff3]">
                     {children}
                 </div>
             </div>

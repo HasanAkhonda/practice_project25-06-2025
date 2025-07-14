@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { any } from 'zod';
 
 const Page = () => {
     // Initialize React Hook Form
@@ -12,6 +13,7 @@ const Page = () => {
     const onSubmit = (data) => {
         // Simulate a search using the input values (replace with real API call)
         console.log(data);
+         
 
         // Example dynamic search result based on the registration number and postcode
         const results = [
@@ -69,7 +71,7 @@ const Page = () => {
                 imageUrl: "/clients/mechanic.jpg",
                 garageName: "Fast Track Auto - Edinburgh",
                 address: "987 Quick Route, Edinburgh, " + data.postCode,
-                postcode: "458103",
+                postcode: "321876",
                 contact: "01370000000",
                 email: "fasttrack.edin@gmail.com",
                 vts: "01370000000",
@@ -99,7 +101,7 @@ const Page = () => {
 
 
         // Set search results to state
-        setSearchResults(results);
+        setSearchResults(results.filter(result=> result.postcode === data.postCode||result.postcode === data.registrationNumber ,any ) );
     };
 
     return (
@@ -109,7 +111,7 @@ const Page = () => {
                     <div className='flex gap-3 justify-evenly items-end p-5 bg-gray-50 rounded-3xl'>
                         <div className='w-full flex-col flex gap-3'>
                             <div className="justify-start text-zinc-950 text-lg font-normal font-Inder leading-snug">Registration Number</div>
-                            {errors.registrationNumber && <span className="text-red-500 text-sm">{String(errors.registrationNumber.message)}</span>}
+                            {errors.registrationNumber && <span className="text-red-500 text-sm">{errors.registrationNumber.message}</span>}
                             <input
                                 type='text'
                                 placeholder='XXXXXXXXXX'
@@ -120,7 +122,7 @@ const Page = () => {
 
                         <div className='w-full flex-col flex gap-3'>
                             <div className="justify-start text-zinc-950 text-lg font-normal font-Inder leading-snug">Post Code</div>
-                            {errors.postCode && <span className="text-red-500 text-sm">{String(errors.postCode.message)}</span>}
+                            {errors.postCode && <span className="text-red-500 text-sm">{errors.postCode.message}</span>}
                             <input
                                 type='text'
                                 placeholder='XXXXXXXXXX'
@@ -137,45 +139,47 @@ const Page = () => {
                         </button>
                     </div>
                 </form>
-                <div className="self-stretch mt-4 justify-start text-Neutral-100 text-2xl font-semibold font-Inter leading-7">No upfront payment required - simply pay at your appointment.</div>
-                {/* Display Search Results */}
+                 {/* Display Search Results */}
                 {searchResults.length > 0 && (
-                    <div className="mt-6 p-4 bg-[#f8fafb] rounded-2xl">
-                        <div className="mt-3">
-                            {searchResults.map((result, index) => (
-                                <div key={index} className="flex justify-between items-center mt-4 p-4 bg-white rounded-lg  ">
+                    <div>
+                        <div className="self-stretch mt-4 justify-start text-Neutral-100 text-2xl font-semibold font-Inter leading-7">No upfront payment required - simply pay at your appointment.</div>
+                        <div className="mt-6 p-4 bg-[#f8fafb] rounded-2xl">
+                            <div className="mt-3">
+                                {searchResults.map((result, index) => (
+                                    <div key={index} className="flex justify-between items-center mt-4 p-4 bg-white rounded-lg  ">
 
-                                    <div className='flex gap-6'>
-                                        <div className='aspect-square w-[232px] h-[232px]  overflow-hidden '>
-                                            <Image src={result.imageUrl} alt={''} width={232} height={232} className='bg-cover' />
+                                        <div className='flex gap-6'>
+                                            <div className='aspect-square w-[232px] h-[232px]  overflow-hidden '>
+                                                <Image src={result.imageUrl} alt={''} width={232} height={232} className='bg-cover' />
+                                            </div>
+                                            {/* details  */}
+                                            <div className='flex flex-col '>
+                                                <div>
+                                                    <div className="text-lg font-semibold text-zinc-950">{result.garageName}</div>
+                                                    <div className="text-sm text-zinc-600">{result.address}</div>
+                                                </div>
+                                                <div className='h-[1px] bg-black w-full my-3' />
+                                                <div>
+                                                    <div className="text-sm text-zinc-600"> {result.postCode}</div>
+                                                    <div className="text-sm text-zinc-600"> {result.contact}</div>
+                                                    <div className="text-sm text-zinc-600"> {result.email}</div>
+                                                    <div className="text-sm text-zinc-600"> {result.vts}</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        {/* details  */}
-                                        <div className='flex flex-col '>
-                                            <div>
-                                                <div className="text-lg font-semibold text-zinc-950">{result.garageName}</div>
-                                                <div className="text-sm text-zinc-600">{result.address}</div>
-                                            </div>
-                                            <div className='h-[1px] bg-black w-full my-3'/>
-                                            <div>
-                                                <div className="text-sm text-zinc-600"> {result.postCode}</div>
-                                                <div className="text-sm text-zinc-600"> {result.contact}</div>
-                                                <div className="text-sm text-zinc-600"> {result.email}</div>
-                                                <div className="text-sm text-zinc-600"> {result.vts}</div>
-                                            </div>
+                                        {/* buttons  */}
+                                        <div className='flex flex-col items-center justify-center gap-3'>
+                                            <button className="w-full px-8 py-[13px] bg-green-500 text-white text-sm font-semibold rounded-lg ">
+                                                Book my MOT
+                                            </button>
+                                            <button className="w-full px-8 py-[13px] text-green-500 bg-white text-sm outline-green-500 outline-1 flex justify-center items-center font-semibold rounded-lg">
+                                                More Details
+                                            </button>
+                                            <div className="w-full text-4xl font-medium font-Poppins text-green-500">{result.price}</div>
                                         </div>
                                     </div>
-                                    {/* buttons  */}
-                                    <div className='flex flex-col items-center justify-center gap-3'>
-                                        <button className="w-full px-8 py-[13px] bg-green-500 text-white text-sm font-semibold rounded-lg ">
-                                            Book my MOT
-                                        </button>
-                                        <button className="w-full px-8 py-[13px] text-green-500 bg-white text-sm outline-green-500 outline-1 flex justify-center items-center font-semibold rounded-lg">
-                                            More Details
-                                        </button>
-                                        <div className="w-full text-4xl font-medium font-Poppins text-green-500">{result.price}</div>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )}

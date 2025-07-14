@@ -28,7 +28,7 @@ const SideBar = () => {
                         </div>
                     </Link>
                     {/* my vehicles  */}
-                    <Link href={'/bookmymot'} data-menu-item="Normal" className="self-stretch p-3  hover:text-green-500 bg-white hover:bg-green-100 rounded inline-flex justify-start items-center gap-2 overflow-hidden">
+                    <Link href={'/myvehicles'} data-menu-item="Normal" className="self-stretch p-3  hover:text-green-500 bg-white hover:bg-green-100 rounded inline-flex justify-start items-center gap-2 overflow-hidden">
                         <div className="flex-1 flex justify-start items-center gap-1">
                             <div className="w-5 h-5 relative overflow-hidden">
                                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
