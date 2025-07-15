@@ -1,13 +1,19 @@
 'use client'
 import { Dialog, DialogContent, DialogTitle } from '../ui/dialog'
 import { useForm } from 'react-hook-form';
+import registerdVehicle from "@/data/allVehicleInfo.json"
 
-const AddAnotherVehicle = ({ open, setIsOpen, handleAddVehicle }) => {
+
+const AddAnotherVehicle = ({ open, setIsOpen, arrayOfVehicles }) => {
 
     const { handleSubmit, register, formState: { errors } } = useForm()
 
-    const handleForm = (e) => {
-         handleAddVehicle(e)
+    const handleAddVehicle = (data) => {
+        // arrayOfVehicles.push({ brandName: "bmw", modelNo: "licence", registrationNumber: `${data.registrationNumber}` },)
+        const vehicleInfo = registerdVehicle.filter(vehicle => data.registrationNumber === vehicle.registrationNumber)
+        vehicleInfo.forEach(vehicle => { arrayOfVehicles.push(vehicle) })
+        // arrayOfVehicles.push(vehicleInfo[0])
+
     }
     return (
         <div>
@@ -20,7 +26,7 @@ const AddAnotherVehicle = ({ open, setIsOpen, handleAddVehicle }) => {
                             <div className="w-7 h-7   absolute right-2 top-3 overflow-hidden">
                             </div>
                         </div>
-                        <form onSubmit={handleSubmit(handleForm)} className=" w-full p-8 bg-white rounded-bl-2xl rounded-br-2xl   outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px] inline-flex flex-col justify-start items-start gap-8">
+                        <form onSubmit={handleSubmit(handleAddVehicle)} className=" w-full p-8 bg-white rounded-bl-2xl rounded-br-2xl   outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px] inline-flex flex-col justify-start items-start gap-8">
                             <div className=" w-full flex flex-col justify-start items-start gap-5">
                                 <div className=" w-full flex flex-col justify-start items-start gap-3">
                                     <div className="justify-start text-zinc-950 text-lg font-normal font-Inder leading-snug">Registration Number</div>

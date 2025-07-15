@@ -3,26 +3,17 @@ import AddAnotherVehicle from '@/components/forms/AddAnotherVehicle';
 import { useState } from 'react';
 import { CiCirclePlus } from "react-icons/ci";
 import VehicleCard from './VehicleCard';
-import registerdVehicle from "@/data/allVehicleInfo.json"
 const arrayOfVehicles = [
     { brandName: "Ford", modelNo: "L123", registrationNumber: "12335678" },
     { brandName: "hyundai", modelNo: "L123", registrationNumber: "12345678" },
- 
+
 ]
 const page = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleModal = () => {
         setIsModalOpen(!isModalOpen);
+    }
 
-    }
-    const handleAddVehicle = (data) => {
-        // arrayOfVehicles.push({ brandName: "bmw", modelNo: "licence", registrationNumber: `${data.registrationNumber}` },)
-        const vehicleInfo = registerdVehicle.filter(vehicle=> data.registrationNumber===vehicle.registrationNumber)
-        vehicleInfo.forEach(vehicle=>{arrayOfVehicles.push(vehicle)})
-        // arrayOfVehicles.push(vehicleInfo[0])
-        
- 
-    }
 
     return (
         <div className='bg-white p-6 flex w-[calc(100vw-300px)]   rounded-3xl'>
@@ -46,7 +37,7 @@ const page = () => {
                 </button>
 
             </div>
-            {isModalOpen && <AddAnotherVehicle open={isModalOpen} setIsOpen={setIsModalOpen} handleAddVehicle={handleAddVehicle} />}
+            {isModalOpen && <AddAnotherVehicle open={isModalOpen} setIsOpen={setIsModalOpen} arrayOfVehicles={arrayOfVehicles} />}
 
         </div>
     )
