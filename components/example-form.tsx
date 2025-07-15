@@ -6,8 +6,7 @@ import { useForm } from "react-hook-form"
 export function ProfileForm() {
 
   const { handleSubmit, register, formState: { errors } } = useForm()
-  const arr = [1, 2, 2, 3, 4, 56, 6, 5]
-
+ 
 
 
   const handleForm = (e) => {

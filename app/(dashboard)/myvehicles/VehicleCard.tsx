@@ -23,7 +23,7 @@ const VehicleCard: React.FC<VehicleCardProps> = ({ brandName, modelNo,  onDelete
             <div className="w-full h-full flex flex-col justify-between items-center gap-2.5">
                 {/* Brand logo   */}
                 <div className=' bg-cover h-[64px] flex items-center'>
-                    <Image className="h-full w-fit " width={3840} height={2160} src={`/brands/${brandName.toLowerCase()}.png`} alt={''} />
+                    <Image className="h-full w-fit " width={3840} height={2160} src={`/brands/${brandName.toLowerCase()}.png`} alt={`brand ${brandName.toLowerCase()}`} />
                 </div>
                 {/* model no  */}
                 <div className="px-3 py-1 bg-zinc-950 rounded-lg flex justify-center items-center  ">

@@ -1,0 +1,67 @@
+[
+  {
+    "brandName": "Ford",
+    "modelNo": "L123",
+    "registrationNumber": "12335678"
+  },
+  {
+    "brandName": "hyundai",
+    "modelNo": "L123",
+    "registrationNumber": "12345678"
+  },
+  {
+    "brandName": "bmw",
+    "modelNo": "L123",
+    "registrationNumber": "12345678"
+  },
+  {
+    "brandName": "Toyota",
+    "modelNo": "T456",
+    "registrationNumber": "22345678"
+  },
+  {
+    "brandName": "Nissan",
+    "modelNo": "N789",
+    "registrationNumber": "32346789"
+  },
+  {
+    "brandName": "Chevrolet",
+    "modelNo": "C789",
+    "registrationNumber": "42347890"
+  },
+  {
+    "brandName": "Mercedes",
+    "modelNo": "M123",
+    "registrationNumber": "52348901"
+  },
+  {
+    "brandName": "Audi",
+    "modelNo": "A123",
+    "registrationNumber": "12345678"
+  },
+  {
+    "brandName": "Honda",
+    "modelNo": "H456",
+    "registrationNumber": "72350123"
+  },
+  {
+    "brandName": "Volkswagen",
+    "modelNo": "V123",
+    "registrationNumber": "82351234"
+  },
+  {
+    "brandName": "BMW",
+    "modelNo": "B456",
+    "registrationNumber": "92352345"
+  },
+  {
+    "brandName": "Tesla",
+    "modelNo": "T789",
+    "registrationNumber": "102345678"
+  },
+  {
+    "brandName": "Subaru",
+    "modelNo": "S123",
+    "registrationNumber": "112356789"
+  }
+]
