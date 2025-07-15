@@ -3,20 +3,24 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { any } from 'zod';
+import registerdVehicle from "@/data/allVehicleInfo.json"
+import VehicleCard from '../myvehicles/VehicleCard';
+
 
 const Page = () => {
     // Initialize React Hook Form
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [searchResults, setSearchResults] = useState([]); // Now an array of results
+    const [searchGarages, setSearchGarages] = useState([]); // Now an array of results for garage
+    const [searchVehicle, setSearchVehicles] = useState([]); // Now an array of results for vehicle
 
     // Handle form submission
     const onSubmit = (data) => {
         // Simulate a search using the input values (replace with real API call)
         console.log(data);
-         
+
 
         // Example dynamic search result based on the registration number and postcode
-        const results = [
+        const garageResults = [
             {
                 imageUrl: "/clients/mechanic.jpg",
                 garageName: "QuickFix Auto - London",
@@ -98,10 +102,17 @@ const Page = () => {
                 price: "£ 56.25",
             },
         ];
+        const vehicleResults = [
+            { brandName: "Ford", modelNo: "L123", registrationNumber: "12335678" },
+            { brandName: "hyundai", modelNo: "L123", registrationNumber: "12345678" },
+
+        ]
 
 
         // Set search results to state
-        setSearchResults(results.filter(result=> result.postcode === data.postCode||result.postcode === data.registrationNumber ,any ) );
+        setSearchGarages(garageResults.filter(garage => garage.postcode === data.postCode, any));
+
+        setSearchVehicles(vehicleResults.filter(vehicle => vehicle.registrationNumber === data.registrationNumber, any));
     };
 
     return (
@@ -111,23 +122,37 @@ const Page = () => {
                     <div className='flex gap-3 justify-evenly items-end p-5 bg-gray-50 rounded-3xl'>
                         <div className='w-full flex-col flex gap-3'>
                             <div className="justify-start text-zinc-950 text-lg font-normal font-Inder leading-snug">Registration Number</div>
-                            {errors.registrationNumber && <span className="text-red-500 text-sm">{errors.registrationNumber.message}</span>}
+                            {errors.registrationNumber && <span className="text-red-500 text-sm">{`${errors.registrationNumber.message}`}</span>}
                             <input
                                 type='text'
-                                placeholder='XXXXXXXXXX'
+                                placeholder='XXXXXXXX'
                                 className="text-zinc-950 text-lg font-normal font-Inter leading-relaxed px-2.5 py-2.5 bg-white rounded-lg outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px]"
-                                {...register('registrationNumber', { required: '* Registration Number is required' })}
+                                {...register('registrationNumber', {
+                                    required: {
+                                        value: true,
+                                        message: '* Registration Number is required'
+                                    },
+                                    minLength: {
+                                        value: 8,
+                                        message: "only 8 characters is valid"
+                                    }
+                                })}
                             />
                         </div>
 
                         <div className='w-full flex-col flex gap-3'>
                             <div className="justify-start text-zinc-950 text-lg font-normal font-Inder leading-snug">Post Code</div>
-                            {errors.postCode && <span className="text-red-500 text-sm">{errors.postCode.message}</span>}
+                            {errors.postCode && <span className="text-red-500 text-sm">{`${errors.postCode.message}`}</span>}
                             <input
                                 type='text'
                                 placeholder='XXXXXXXXXX'
                                 className="text-zinc-950 text-lg font-normal font-Inter leading-relaxed px-2.5 py-2.5 bg-white rounded-lg outline-1 outline-offset-[-1px] outline-green-500 backdrop-blur-[5px]"
-                                {...register('postCode', { required: '* Post Code is required' })}
+                                {...register('postCode', {
+                                    required: '* Post Code is required', minLength: {
+                                        value: 5,
+                                        message: "5 digit postcode  "
+                                    }
+                                })}
                             />
                         </div>
 
@@ -139,31 +164,52 @@ const Page = () => {
                         </button>
                     </div>
                 </form>
-                 {/* Display Search Results */}
-                {searchResults.length > 0 && (
+
+                {/* Display Search Results */}
+                {searchVehicle.length > 0 && (
+                    <div className='bg-white p-6 mt-6 flex w-[calc(100vw-300px)]   rounded-3xl'>
+                        <div className='flex gap-5 overflow-x-scroll'>
+                            {/* vehicles card  */}
+                            {
+                                searchVehicle.map((vehicle, index) => {
+                                    return (
+                                        <VehicleCard class name {
+                                            constructor(parameters) {
+                                                
+                                            }
+                                        } key={index} brandName={vehicle.brandName} modelNo={vehicle.modelNo} />
+                                    );
+                                })
+                            }
+                        </div>
+
+                    </div>
+                )}
+                {/* Display Search Results */}
+                {searchGarages.length > 0 && (
                     <div>
-                        <div className="self-stretch mt-4 justify-start text-Neutral-100 text-2xl font-semibold font-Inter leading-7">No upfront payment required - simply pay at your appointment.</div>
+                        <div className="self-stretch mt-6 justify-start text-Neutral-100 text-2xl font-semibold font-Inter leading-7">No upfront payment required - simply pay at your appointment.</div>
                         <div className="mt-6 p-4 bg-[#f8fafb] rounded-2xl">
                             <div className="mt-3">
-                                {searchResults.map((result, index) => (
+                                {searchGarages.map((garage, index) => (
                                     <div key={index} className="flex justify-between items-center mt-4 p-4 bg-white rounded-lg  ">
 
                                         <div className='flex gap-6'>
                                             <div className='aspect-square w-[232px] h-[232px]  overflow-hidden '>
-                                                <Image src={result.imageUrl} alt={''} width={232} height={232} className='bg-cover' />
+                                                <Image src={garage.imageUrl} alt={''} width={232} height={232} className='bg-cover' />
                                             </div>
                                             {/* details  */}
                                             <div className='flex flex-col '>
                                                 <div>
-                                                    <div className="text-lg font-semibold text-zinc-950">{result.garageName}</div>
-                                                    <div className="text-sm text-zinc-600">{result.address}</div>
+                                                    <div className="text-lg font-semibold text-zinc-950">{garage.garageName}</div>
+                                                    <div className="text-sm text-zinc-600">{garage.address}</div>
                                                 </div>
                                                 <div className='h-[1px] bg-black w-full my-3' />
                                                 <div>
-                                                    <div className="text-sm text-zinc-600"> {result.postCode}</div>
-                                                    <div className="text-sm text-zinc-600"> {result.contact}</div>
-                                                    <div className="text-sm text-zinc-600"> {result.email}</div>
-                                                    <div className="text-sm text-zinc-600"> {result.vts}</div>
+                                                    <div className="text-sm text-zinc-600"> {garage.postCode}</div>
+                                                    <div className="text-sm text-zinc-600"> {garage.contact}</div>
+                                                    <div className="text-sm text-zinc-600"> {garage.email}</div>
+                                                    <div className="text-sm text-zinc-600"> {garage.vts}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,7 +221,7 @@ const Page = () => {
                                             <button className="w-full px-8 py-[13px] text-green-500 bg-white text-sm outline-green-500 outline-1 flex justify-center items-center font-semibold rounded-lg">
                                                 More Details
                                             </button>
-                                            <div className="w-full text-4xl font-medium font-Poppins text-green-500">{result.price}</div>
+                                            <div className="w-full text-4xl font-medium font-Poppins text-green-500">{garage.price}</div>
                                         </div>
                                     </div>
                                 ))}
@@ -185,7 +231,7 @@ const Page = () => {
                 )}
 
                 {/* Display a message if no results */}
-                {searchResults.length === 0 && (
+                {searchGarages.length === 0 && (
                     <div className='w-xl flex mt-6 flex-col mx-auto gap-12 justify-center items-center'>
                         <div className="text-center justify-start text-green-500 text-6xl font-normal font-Inder leading-[67.20px]">
                             Input Registration Number & Postcode
